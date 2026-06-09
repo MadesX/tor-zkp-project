@@ -26,14 +26,14 @@ The project implements and evaluates a ZKP-enhanced Tor architecture using:
 
 * Multi-round FFS Zero-Knowledge authentication
 * Authenticated Tor exit nodes
-* External verifier service
+* External verifier
+* Chutney-based Tor simulation
 * Shadow-based Tor network simulation
 * Performance comparison:
 
   * Standard Tor
   * ZKP-Enhanced Tor
-* Medium-scale Tor network experiments
-* Throughput and latency evaluation
+* Large-scale Tor network experiments
 
 ---
 
@@ -261,3 +261,4 @@ The implementation demonstrates that Zero-Knowledge authentication can be integr
 
 * Matan Sides
 * Ron Haba
+
