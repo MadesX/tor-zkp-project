@@ -1,0 +1,20 @@
+[package]
+name = "shadow-build-common"
+edition.workspace = true
+publish.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+bindgen = ["dep:bindgen"]
+cbindgen = ["dep:cbindgen"]
+
+[dependencies]
+bindgen = { optional = true, version = "0.72.1" }
+cbindgen = { optional = true, version = "0.29.0", default-features = false }
+cc = { version = "1.2", features = ["parallel"] }
+system-deps = "7.0"
+
+[package.metadata.system-deps]
+# Keep consistent with the minimum version number in /CMakeLists.txt
+glib = { name = "glib-2.0", version = "2.58" }

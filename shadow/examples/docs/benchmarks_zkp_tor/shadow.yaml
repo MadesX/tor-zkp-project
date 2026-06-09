@@ -1,0 +1,744 @@
+general:
+  stop_time: 120 min
+network:
+  graph:
+    type: gml
+    inline: |
+      graph [
+        directed 0
+        node [
+          id 0
+          host_bandwidth_down "1 Gbit"
+          host_bandwidth_up "1 Gbit"
+        ]
+        edge [
+          source 0
+          target 0
+          latency "50 ms"
+          jitter "0 ms"
+          packet_loss 0.0
+        ]
+      ]
+hosts:
+  verifier:
+    network_node_id: 0
+    processes:
+    - path: python3
+      args: -u /home/asusms/tor_project/verifier_shadow_fixed.py
+      start_time: 1
+      expected_final_state: running
+  4uthority:
+    network_node_id: 0
+    ip_addr: 100.0.0.1
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address 4uthority --Nickname 4uthority
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 1
+      expected_final_state: running
+  exit1:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address exit1 --Nickname exit1
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  exit2:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address exit2 --Nickname exit2
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  relay1:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address relay1 --Nickname relay1
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  relay2:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address relay2 --Nickname relay2
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  relay3:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address relay3 --Nickname relay3
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  relay4:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address relay4 --Nickname relay4
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 60
+      expected_final_state: running
+  client:
+    network_node_id: 0
+    processes:
+    - path: tgen
+      # See https://shadow.github.io/docs/guide/compatibility_notes.html#libopenblas
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.client.graphml.xml
+      start_time: 600
+  torclient:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient --Nickname torclient
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      # See https://shadow.github.io/docs/guide/compatibility_notes.html#libopenblas
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient2:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient2 --Nickname torclient2
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient3:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient3 --Nickname torclient3
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient4:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient4 --Nickname torclient4
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient5:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient5 --Nickname torclient5
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient6:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient6 --Nickname torclient6
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient7:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient7 --Nickname torclient7
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient8:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient8 --Nickname torclient8
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient9:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient9 --Nickname torclient9
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient10:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient10 --Nickname torclient10
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient11:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient11 --Nickname torclient11
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient12:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient12 --Nickname torclient12
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient13:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient13 --Nickname torclient13
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient14:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient14 --Nickname torclient14
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient15:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient15 --Nickname torclient15
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient16:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient16 --Nickname torclient16
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient17:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient17 --Nickname torclient17
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient18:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient18 --Nickname torclient18
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient19:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient19 --Nickname torclient19
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient20:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient20 --Nickname torclient20
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient21:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient21 --Nickname torclient21
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient22:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient22 --Nickname torclient22
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient23:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient23 --Nickname torclient23
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient24:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient24 --Nickname torclient24
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient25:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient25 --Nickname torclient25
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient26:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient26 --Nickname torclient26
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient27:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient27 --Nickname torclient27
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient28:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient28 --Nickname torclient28
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient29:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient29 --Nickname torclient29
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient30:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient30 --Nickname torclient30
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient31:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient31 --Nickname torclient31
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient32:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient32 --Nickname torclient32
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient33:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient33 --Nickname torclient33
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient34:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient34 --Nickname torclient34
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient35:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient35 --Nickname torclient35
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient36:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient36 --Nickname torclient36
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient37:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient37 --Nickname torclient37
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient38:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient38 --Nickname torclient38
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient39:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient39 --Nickname torclient39
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient40:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient40 --Nickname torclient40
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient41:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient41 --Nickname torclient41
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient42:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient42 --Nickname torclient42
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient43:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient43 --Nickname torclient43
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient44:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient44 --Nickname torclient44
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient45:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient45 --Nickname torclient45
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient46:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient46 --Nickname torclient46
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient47:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient47 --Nickname torclient47
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient48:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient48 --Nickname torclient48
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient49:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient49 --Nickname torclient49
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500
+
+  torclient50:
+    network_node_id: 0
+    processes:
+    - path: /home/asusms/tor_project/tor/src/app/tor
+      args: --Address torclient50 --Nickname torclient50
+            --defaults-torrc torrc-defaults -f torrc
+      start_time: 900
+      expected_final_state: running
+    - path: tgen
+      environment: { OPENBLAS_NUM_THREADS: "1" }
+      args: ../../../conf/tgen.torclient.graphml.xml
+      start_time: 1500

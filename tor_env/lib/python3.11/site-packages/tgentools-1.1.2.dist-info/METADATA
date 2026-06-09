@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: TGenTools
+Version: 1.1.2
+Summary: A utility to analyze and visualize TGen output
+Home-page: https://github.com/shadow/tgen/
+Author: Rob Jansen
+License-File: LICENSE
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: summary

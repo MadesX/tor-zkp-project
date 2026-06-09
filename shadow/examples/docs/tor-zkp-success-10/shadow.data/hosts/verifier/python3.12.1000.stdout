@@ -1,0 +1,51 @@
+[*] Secure Service Provider listening on 0.0.0.0:8888
+[*] Connection received from ('11.0.0.2', 21539).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 21539) is mathematically trusted.
+[*] ('11.0.0.2', 21539) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 28975).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 28975) is mathematically trusted.
+[*] ('11.0.0.2', 28975) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 14130).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 14130) is mathematically trusted.
+[*] ('11.0.0.2', 14130) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 53487).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 53487) is mathematically trusted.
+[*] ('11.0.0.2', 53487) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 30346).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 30346) is mathematically trusted.
+[*] ('11.0.0.2', 30346) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 35602).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 35602) is mathematically trusted.
+[*] ('11.0.0.2', 35602) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 59029).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 59029) is mathematically trusted.
+[*] ('11.0.0.2', 59029) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 36867).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 36867) is mathematically trusted.
+[*] ('11.0.0.2', 36867) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 42225).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 42225) is mathematically trusted.
+[*] ('11.0.0.2', 42225) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.
+[*] Connection received from ('11.0.0.2', 33222).
+Starting 20-Round FFS-ZKP Verification...
+[SUCCESS] All rounds verified!
+Exit Node ('11.0.0.2', 33222) is mathematically trusted.
+[*] ('11.0.0.2', 33222) did not send HTTP data (Likely a Tor network health check). Dropping cleanly.

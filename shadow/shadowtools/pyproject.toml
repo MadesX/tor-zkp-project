@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shadowtools"
+version = "0.0.1"
+description = "Libraries and tools for use with the shadow network simulator"
+# Oldest python version on a supported platform (debian 11).
+requires-python = ">=3.9.2"
+# Strings from https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    # Tightly coupled with the shadow simulator itself.
+    # Best distributed together.
+    "Private :: Do Not Upload",
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+
+dependencies = [
+    "pyyaml ~= 6.0",
+]
+
+[project.urls]
+Homepage = "https://shadow.github.io/"
+Issues = "https://github.com/shadow/shadow/issues"
+
+[project.scripts]
+shadow-exec = "shadowtools.shadow_exec:__main__"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# Mark package as having type annotations (PEP 561)
+"shadowtools" = ["py.typed"]

@@ -1,0 +1,10 @@
+[package]
+name = "vasi"
+edition.workspace = true
+publish.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+static_assertions = "1.1.0"
+vasi-macro = { path = "../vasi-macro" }

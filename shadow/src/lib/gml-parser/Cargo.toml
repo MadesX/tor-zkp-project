@@ -1,0 +1,10 @@
+[package]
+name = "gml-parser"
+edition.workspace = true
+publish.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+nom = { version = "8.0", features = ["alloc"] }
+nom-language = "0.1.0"

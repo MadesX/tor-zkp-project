@@ -1,0 +1,5 @@
+ExitRelay 1
+ExitPolicy "accept *:*"
+
+BandwidthRate 1 GBytes
+BandwidthBurst 1 GBytes

@@ -1,0 +1,8 @@
+# Custom 10-Node Research Network
+Authority = Node(tag="a", authority=1, relay=1, torrc="authority.tmpl")
+Client = Node(tag="c", client=1, torrc="client.tmpl")
+
+# Create 10 Relays and 1 Client
+NODES = Authority.getN(10) + Client.getN(1)
+
+ConfigureNodes(NODES)

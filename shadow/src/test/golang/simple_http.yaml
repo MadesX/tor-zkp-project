@@ -1,0 +1,23 @@
+general:
+  stop_time: 10s
+
+network:
+  graph:
+    type: 1_gbit_switch
+
+hosts:
+  server:
+    network_node_id: 0
+    processes:
+    - path: ./test_simple_http
+      start_time: 3s
+      expected_final_state: running
+
+  client1: &host
+    network_node_id: 0
+    processes:
+    - path: curl
+      args: http://server
+      start_time: 5s
+  client2: *host
+  client3: *host

@@ -1,0 +1,9 @@
+[package]
+name = "shadow-pod"
+edition.workspace = true
+publish.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libc = { version = "0.2.176", default-features = false }
