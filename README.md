@@ -261,5 +261,3 @@ The implementation demonstrates that Zero-Knowledge authentication can be integr
 
 * Matan Sides
 * Ron Haba
-
-
