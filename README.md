@@ -4,8 +4,7 @@
 
 This project extends the Tor network with an authentication mechanism based on the Feige–Fiat–Shamir (FFS) Zero-Knowledge Proof protocol.
 
-The implementation is based on the research paper:
-
+The implementation is based on the 2022 research paper:  
 “Handling Exit Node Vulnerability in Onion Routing with a Zero-Knowledge Proof”
 by Nadav Voloch and Maor Meir Hajaj.
 
