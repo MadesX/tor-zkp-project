@@ -332,7 +332,9 @@ The experimental results demonstrate that integrating FFS-based Zero-Knowledge a
 
 # Notes
 
-This project is intended for academic and research purposes.
+This project was developed as part of an academic research project conducted under the auspices of the Ruppin Academic Center.
 
 The implementation demonstrates that Zero-Knowledge authentication can be integrated into anonymous communication systems while preserving anonymity properties.
+
+This repository is provided for academic and research purposes only. Any requests regarding the project, its use, publication, or further collaboration should be directed to the Ruppin Academic Center.
 
