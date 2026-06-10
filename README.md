@@ -1,4 +1,4 @@
-# Tor-ZKP: Anonymous and Authenticated Tor Exit Nodes using FFS Zero-Knowledge Proofs
+# Handling Exit Node Vulnerability in Onion routing with Zero-Knowledge Proof
 
 ## Overview
 
